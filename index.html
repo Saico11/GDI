@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Inventario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Inventario de Productos</h1>
+    <button onclick="mostrarFormulario()">Agregar Productos</button>
+    <div id="formularioProducto">
+        <h2>Agregar Producto</h2>
+        <form id="formProducto">
+            <label>ID Producto</label>
+            <input type="text" name="id_producto" required>
+            <label>ID Subgrupo</label>
+            <input type="text" name="id_subgrupo" required>
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+            <label>Unidad</label>
+            <input type="text" name="unidad" required>
+            <label>Stock</label>
+            <input type="text" name="stock" required>
+            <label>Fecha de Vencimiento</label>
+            <input type="text" name="fecha_vencimiento" required>
+            <label>Fecha de Produccion</label>
+            <input type="text" name="fecha_produccion" required>
+            <label>Fecha de Administracion</label>
+            <input type="text" name="fecha_administracion" required>
+            <button type="submit">Agregar</button>
+            <button type="button" onclick="cerrarFormulario()">Cancelar</button>
+        </form>
+    </div>
+
+    <table id="tablaProductos">
+        <tr>
+            <th>ID Producto</th>
+            <th>ID Subgrupo</th>
+            <th>Nombre</th>
+            <th>Unidad</th>
+            <th>Stock</th>
+            <th>Fecha de Vencimiento</th>
+            <th>Fecha de Produccion</th>
+            <th>Fecha de Administracion</th>
+        </tr>
+    </table>
+
+</body>
+</html>

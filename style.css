@@ -1,0 +1,37 @@
+body {
+    background-color: aquamarine;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px soolid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #28a745;
+    color: white;
+    border: nome;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
