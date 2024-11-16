@@ -9,13 +9,15 @@
 <body>
     <h1>Inventario de Productos</h1>
     <button onclick="mostrarFormulario()">Agregar Productos</button>
-    <div id="formularioProducto">
+    <form id="formularioProducto" method="post" action="ingresar.php">
         <h2>Agregar Producto</h2>
         <form id="formProducto">
             <label>ID Producto</label>
             <input type="text" name="id_producto" required>
             <label>ID Subgrupo</label>
             <input type="text" name="id_subgrupo" required>
+            <label>ID Empleado</label>
+            <input type="text" name="id_empleado" required>
             <label>Nombre</label>
             <input type="text" name="nombre" required>
             <label>Unidad</label>
@@ -23,15 +25,15 @@
             <label>Stock</label>
             <input type="text" name="stock" required>
             <label>Fecha de Vencimiento</label>
-            <input type="text" name="fecha_vencimiento" required>
+            <input type="date" name="fecha_vencimiento" required>
             <label>Fecha de Produccion</label>
-            <input type="text" name="fecha_produccion" required>
+            <input type="date" name="fecha_produccion" required>
             <label>Fecha de Administracion</label>
-            <input type="text" name="fecha_administracion" required>
+            <input type="date" name="fecha_administracion" required>
             <button type="submit">Agregar</button>
             <button type="button" onclick="cerrarFormulario()">Cancelar</button>
         </form>
-    </div>
+    </form>
 
     <table id="tablaProductos">
         <tr>
