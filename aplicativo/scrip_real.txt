@@ -522,7 +522,7 @@ CREATE PROCEDURE ActualizarFactura(
     IN p_numero_factura CHAR(10),
     IN p_fecha DATE,
     IN p_total DECIMAL(10, 2),
-    IN p_id_empleado INT,
+    IN p_id_empleado CHAR(8),
     IN p_RUC CHAR(11)
 )
 BEGIN

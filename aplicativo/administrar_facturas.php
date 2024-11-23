@@ -34,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $numero_fact = $_POST['numero_fact'];
         $total = $_POST['total'];
         $fecha = $_POST['fecha'];
-        $id_cliente = $_POST['id_cliente']; // Asegúrate de que este campo esté en el formulario
+        $id_empleado = $_POST['id_empleado']; // Asegúrate de que este campo esté en el formulario
         $ruc = $_POST['ruc'];
 
         // Llamar al procedimiento almacenado para modificar factura
-        $sql = "CALL ActualizarFactura('$numero_fact', '$fecha', '$total', '$id_cliente', '$ruc')";
+        $sql = "CALL ActualizarFactura('$numero_fact', '$fecha', '$total', '$id_empleado', '$ruc')";
         if ($conexion->query($sql) === TRUE) {
             echo "Factura modificada exitosamente.";
         } else {
@@ -107,8 +107,8 @@ $facturas = $conexion->query($sql);
         <label for="fecha">Nueva Fecha</label>
         <input type="date" name="fecha" required>
 
-        <label for="id_cliente">ID Cliente</label>
-        <input type="text" name="id_cliente" required>
+        <label for="id_empleado">ID Empleado</label>
+        <input type="text" name="id_empleado" required>
 
         <label for="ruc">Nuevo RUC</label>
         <input type="text" name="ruc" required>

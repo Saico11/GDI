@@ -76,7 +76,7 @@ if (isset($_POST['consultar_empleado'])) {
         <input type="text" name="nombres" placeholder="Nombres" required><br>
         <input type="text" name="apellido_pat" placeholder="Apellido Paterno" required><br>
         <input type="text" name="apellido_mat" placeholder="Apellido Materno" required><br>
-        <button>Insertar Empleado</button>
+        <button name='insertar_empleado'>Insertar Empleado</button>
     </form>
 
     <!-- Formulario de actualizar empleado -->
@@ -87,21 +87,21 @@ if (isset($_POST['consultar_empleado'])) {
         <input type="text" name="nombres" placeholder="Nombres" required><br>
         <input type="text" name="apellido_pat" placeholder="Apellido Paterno" required><br>
         <input type="text" name="apellido_mat" placeholder="Apellido Materno" required><br>
-        <button>Actualizar Empleado</button>
+        <button name='actualizar_empleado'>Actualizar Empleado</button>
     </form>
 
     <!-- Formulario de eliminar empleado -->
     <form method="POST">
         <h2>Eliminar Empleado</h2>
         <input type="text" name="id_empleado" placeholder="ID Empleado" required><br>
-        <button>Eliminar Empleado</button>
+        <button name='eliminar_empleado'>Eliminar Empleado</button>
     </form>
 
     <!-- Formulario de consultar empleado -->
     <form method="POST">
         <h2>Consultar Empleado por ID</h2>
         <input type="text" name="id_empleado" placeholder="ID Empleado" required><br>
-        <button>Consultar Empleado</button>
+        <button name='consultar_empleado'>Consultar Empleado</button>
     </form>
 
     <?php if ($empleado): ?>
