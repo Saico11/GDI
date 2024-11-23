@@ -48,17 +48,6 @@ if (isset($_POST['actualizar_negocio'])) {
     }
 }
 
-// Eliminar Negocio
-if (isset($_POST['eliminar_negocio'])) {
-    $ruc = $_POST['ruc'];
-
-    $query = "CALL EliminarNegocio('$ruc')";
-    if (mysqli_query($conexion, $query)) {
-        echo "Negocio eliminado correctamente.";
-    } else {
-        echo "Error al eliminar negocio: " . mysqli_error($conexion);
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -86,13 +75,6 @@ if (isset($_POST['eliminar_negocio'])) {
         <input type="text" name="ruc" placeholder="RUC" required><br>
         <input type="text" name="razon_social" placeholder="Razón Social" required><br>
         <input type="submit" name="actualizar_negocio" value="Actualizar Negocio">
-    </form>
-
-    <!-- Formulario de eliminar negocio -->
-    <form method="POST">
-        <h2>Eliminar Negocio</h2>
-        <input type="text" name="ruc" placeholder="RUC" required><br>
-        <input type="submit" name="eliminar_negocio" value="Eliminar Negocio">
     </form>
 
     <!-- Formulario de consultar negocio por RUC -->
