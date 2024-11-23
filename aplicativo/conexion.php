@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$password = "080100";
+$password = "";
 $database = "Inventario";
 $port = 3306;
 

@@ -9,15 +9,27 @@ if (isset($_POST['insertar_producto'])) {
     $nombre = $_POST['nombre'];
     $unidad = $_POST['unidad'];
     $stock = $_POST['stock'];
-    $anio_vencimiento = $_POST['anio_vencimiento'];
-    $mes_vencimiento = $_POST['mes_vencimiento'];
-    $dia_vencimiento = $_POST['dia_vencimiento'];
-    $anio_produccion = $_POST['anio_produccion'];
-    $mes_produccion = $_POST['mes_produccion'];
-    $dia_produccion = $_POST['dia_produccion'];
-    $anio_administracion = $_POST['anio_administracion'];
-    $mes_administracion = $_POST['mes_administracion'];
-    $dia_administracion = $_POST['dia_administracion'];
+    $fecha_vencimiento = isset($_POST["fecha_vencimiento"]) ? $_POST["fecha_vencimiento"] : null;
+    $fecha_produccion = isset($_POST["fecha_produccion"]) ? $_POST["fecha_produccion"] : null;
+    $fecha_administracion = isset($_POST["fecha_administracion"]) ? $_POST["fecha_administracion"] : null;
+
+    if ($fecha_vencimiento) {
+        list($anio_vencimiento, $mes_vencimiento, $dia_vencimiento) = explode('-', $fecha_vencimiento);
+    } else {
+        $anio_vencimiento = $mes_vencimiento = $dia_vencimiento = null;
+    }
+    
+    if ($fecha_produccion) {
+        list($anio_produccion, $mes_produccion, $dia_produccion) = explode('-', $fecha_produccion);
+    } else {
+        $anio_produccion = $mes_produccion = $dia_produccion = null;
+    }
+    
+    if ($fecha_administracion) {
+        list($anio_administracion, $mes_administracion, $dia_administracion) = explode('-', $fecha_administracion);
+    } else {
+        $anio_administracion = $mes_administracion = $dia_administracion = null;
+    }
 
     $query = "CALL InsertarProducto('$id_producto', '$id_empleado', '$id_subgrupo', '$nombre', '$unidad', '$stock', 
             '$anio_vencimiento', '$mes_vencimiento', '$dia_vencimiento', '$anio_produccion', '$mes_produccion', '$dia_produccion',
@@ -37,15 +49,28 @@ if (isset($_POST['actualizar_producto'])) {
     $nombre = $_POST['nombre'];
     $unidad = $_POST['unidad'];
     $stock = $_POST['stock'];
-    $anio_vencimiento = $_POST['anio_vencimiento'];
-    $mes_vencimiento = $_POST['mes_vencimiento'];
-    $dia_vencimiento = $_POST['dia_vencimiento'];
-    $anio_produccion = $_POST['anio_produccion'];
-    $mes_produccion = $_POST['mes_produccion'];
-    $dia_produccion = $_POST['dia_produccion'];
-    $anio_administracion = $_POST['anio_administracion'];
-    $mes_administracion = $_POST['mes_administracion'];
-    $dia_administracion = $_POST['dia_administracion'];
+
+    $fecha_vencimiento = isset($_POST["fecha_vencimiento"]) ? $_POST["fecha_vencimiento"] : null;
+    $fecha_produccion = isset($_POST["fecha_produccion"]) ? $_POST["fecha_produccion"] : null;
+    $fecha_administracion = isset($_POST["fecha_administracion"]) ? $_POST["fecha_administracion"] : null;
+
+    if ($fecha_vencimiento) {
+        list($anio_vencimiento, $mes_vencimiento, $dia_vencimiento) = explode('-', $fecha_vencimiento);
+    } else {
+        $anio_vencimiento = $mes_vencimiento = $dia_vencimiento = null;
+    }
+
+    if ($fecha_produccion) {
+        list($anio_produccion, $mes_produccion, $dia_produccion) = explode('-', $fecha_produccion);
+    } else {
+        $anio_produccion = $mes_produccion = $dia_produccion = null;
+    }
+
+    if ($fecha_administracion) {
+        list($anio_administracion, $mes_administracion, $dia_administracion) = explode('-', $fecha_administracion);
+    } else {
+        $anio_administracion = $mes_administracion = $dia_administracion = null;
+    }
 
     $query = "CALL ActualizarProducto('$id_producto', '$id_empleado', '$id_subgrupo', '$nombre', '$unidad', '$stock', 
             '$anio_vencimiento', '$mes_vencimiento', '$dia_vencimiento', '$anio_produccion', '$mes_produccion', '$dia_produccion',
@@ -101,16 +126,13 @@ if (isset($_POST['consultar_producto'])) {
         <input type="text" name="nombre" placeholder="Nombre Producto" required><br>
         <input type="text" name="unidad" placeholder="Unidad" required><br>
         <input type="number" name="stock" placeholder="Stock" required><br>
-        <input type="number" name="anio_vencimiento" placeholder="Año Vencimiento" required><br>
-        <input type="number" name="mes_vencimiento" placeholder="Mes Vencimiento" required><br>
-        <input type="number" name="dia_vencimiento" placeholder="Día Vencimiento" required><br>
-        <input type="number" name="anio_produccion" placeholder="Año Producción" required><br>
-        <input type="number" name="mes_produccion" placeholder="Mes Producción" required><br>
-        <input type="number" name="dia_produccion" placeholder="Día Producción" required><br>
-        <input type="number" name="anio_administracion" placeholder="Año Administración" required><br>
-        <input type="number" name="mes_administracion" placeholder="Mes Administración" required><br>
-        <input type="number" name="dia_administracion" placeholder="Día Administración" required><br>
-        <input type="submit" name="insertar_producto" value="Insertar Producto">
+        <label for="fecha_vencimiento">Fecha Vencimiento</label>
+        <input type="date" name="fecha_vencimiento" placeholder="Fecha Vencimiento" title="Fecha Vencimiento" required><br>
+        <label for="fecha_vencimiento">Fecha Producción</label>
+        <input type="date" name="fecha_produccion" placeholder="Fecha Producción" title="Fecha Producción"  required><br>
+        <label for="fecha_vencimiento">Fecha Administración</label>
+        <input type="date" name="fecha_administracion" placeholder="Fecha Administración" title="Fecha Administración"  required><br>
+        <button type="submit" name="insertar_producto">Insertar Producto</button>
     </form>
 
     <!-- Formulario de actualizar producto -->
@@ -122,21 +144,21 @@ if (isset($_POST['consultar_producto'])) {
         <input type="text" name="nombre" placeholder="Nombre Producto" required><br>
         <input type="text" name="unidad" placeholder="Unidad" required><br>
         <input type="number" name="stock" placeholder="Stock" required><br>
-        <input type="submit" name="actualizar_producto" value="Actualizar Producto">
+        <button type="submit" name="actualizar_producto">Actualizar Producto</button>
     </form>
 
     <!-- Formulario de eliminar producto -->
     <form method="POST">
         <h2>Eliminar Producto</h2>
         <input type="text" name="id_producto" placeholder="ID Producto" required><br>
-        <input type="submit" name="eliminar_producto" value="Eliminar Producto">
+        <button type="submit" name="eliminar_producto">Eliminar Producto</button>
     </form>
 
     <!-- Formulario de consultar producto -->
     <form method="POST">
         <h2>Consultar Producto por ID</h2>
         <input type="text" name="id_producto" placeholder="ID Producto" required><br>
-        <input type="submit" name="consultar_producto" value="Consultar Producto">
+        <button type="submit" name="consultar_producto">Consultar Producto</button>
     </form>
 
     <?php if ($producto): ?>
